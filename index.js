@@ -24,8 +24,15 @@ app.get("*", (req, res) => {
 });
 
 // Mongo connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
-
+mongoose.connect("mongodb+srv://muna:<1234>@homework21.un1gn.mongodb.net/<homework21>?retryWrites=true&w=majority",
+process.env.MONGODB_URI || 
+{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+}
+);
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
